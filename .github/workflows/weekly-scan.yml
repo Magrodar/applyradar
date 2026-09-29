@@ -1,0 +1,33 @@
+name: Weekly job scan
+
+on:
+  schedule:
+    - cron: "0 6 * * 2"   # every Tuesday 06:00 UTC = 9:00 AM Cairo
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python scan.py
+      - name: Save results to the repo
+        run: |
+          git config user.name "applyradar-bot"
+          git config user.email "applyradar-bot@users.noreply.github.com"
+          git add results seen_jobs.json
+          git commit -m "Weekly scan $(date -u +%F)" || echo "No changes"
+          git push
+      - name: Open this week's issue (GitHub emails it to you)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "ApplyRadar scan $(date -u +%F)" --body-file results/summary.md
