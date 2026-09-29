@@ -3,11 +3,10 @@ name: Weekly job scan
 on:
   schedule:
     - cron: "0 6 * * 2"   # every Tuesday 06:00 UTC = 9:00 AM Cairo
-  workflow_dispatch:
+  workflow_dispatch:       # "Run workflow" button for a manual scan
 
 permissions:
   contents: write
-  issues: write
 
 jobs:
   scan:
@@ -27,7 +26,3 @@ jobs:
           git add results seen_jobs.json
           git commit -m "Weekly scan $(date -u +%F)" || echo "No changes"
           git push
-      - name: Open this week's issue (GitHub emails it to you)
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh issue create --title "ApplyRadar scan $(date -u +%F)" --body-file results/summary.md
