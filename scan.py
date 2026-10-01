@@ -1,6 +1,6 @@
 """
 ApplyRadar weekly scan.
-Reads config.json, checks each company's public Workday career site,
+Reads config.json, checks each company's public career site (Workday, Workable, Manatal),
 keeps jobs in Egypt and the Gulf, scores them against the QC and Planning tracks,
 and writes results/ (report.html, jobs.json, jobs.csv) plus seen_jobs.json.
 Runs free on GitHub Actions every Tuesday; can also run on any PC:  pip install requests && python scan.py
@@ -15,6 +15,7 @@ os.makedirs(OUT, exist_ok=True)
 HEADERS = {"Accept": "application/json", "Content-Type": "application/json",
            "User-Agent": "ApplyRadar/0.2 (personal weekly job check)"}
 PAUSE = 1.5
+ERRORS = []
 
 
 def fetch(c, word):
@@ -31,6 +32,54 @@ def fetch(c, word):
         offset += 20
         time.sleep(PAUSE)
     return out
+
+
+def workday_jobs(c):
+    """Normalized jobs from a Workday site, searched by each location word."""
+    for word in CFG["search_words"]:
+        try:
+            posts = fetch(c, word)
+        except Exception as e:
+            ERRORS.append(f"{c['name']} / {word}: {e}")
+            posts = []
+        for p in posts:
+            path = p.get("externalPath", "") or ""
+            yield {"id": f"{c['tenant']}-{path.rsplit('_', 1)[-1]}", "title": p.get("title", ""),
+                   "location": (p.get("locationsText", "") or "") + " " + path,
+                   "display_loc": p.get("locationsText", "") or "", "posted": p.get("postedOn", ""),
+                   "url": f"https://{c['tenant']}.{c['wd']}.myworkdayjobs.com/{c['site']}{path}"}
+        time.sleep(PAUSE)
+
+
+def workable_jobs(c):
+    """Workable public widget API: one call returns every open job."""
+    r = requests.get(f"https://apply.workable.com/api/v1/widget/accounts/{c['account']}", headers=HEADERS, timeout=30)
+    r.raise_for_status()
+    for j in r.json().get("jobs", []):
+        locs = j.get("locations") or [{"city": j.get("city", ""), "country": j.get("country", "")}]
+        loc = "; ".join(", ".join(x for x in (l.get("city"), l.get("country")) if x) for l in locs)
+        yield {"id": f"{c['account']}-{j.get('shortcode')}", "title": j.get("title", ""), "location": loc,
+               "display_loc": loc, "posted": j.get("published_on", ""), "url": j.get("url", "")}
+
+
+def manatal_jobs(c):
+    """Manatal careers-page.com API, paginated."""
+    url = f"https://www.careers-page.com/api/v1.0/c/{c['slug']}/jobs/"
+    pages = 0
+    while url and pages < 30:
+        r = requests.get(url, headers=HEADERS, timeout=30)
+        r.raise_for_status()
+        d = r.json()
+        for j in d.get("results", []):
+            loc = j.get("location_display") or ", ".join(x for x in (j.get("city"), j.get("country")) if x)
+            yield {"id": f"{c['slug'][:20]}-{j.get('hash') or j.get('id')}", "title": j.get("position_name", ""),
+                   "location": loc, "display_loc": loc, "posted": "",
+                   "url": f"https://www.careers-page.com/{c['slug']}/job/{j.get('hash')}"}
+        url, pages = d.get("next"), pages + 1
+        time.sleep(PAUSE)
+
+
+SOURCES = {"workday": workday_jobs, "workable": workable_jobs, "manatal": manatal_jobs}
 
 
 def region_of(text):
@@ -72,28 +121,27 @@ def score(title):
 def main():
     seen_path = os.path.join(HERE, "seen_jobs.json")
     seen = set(json.load(open(seen_path))) if os.path.exists(seen_path) else set()
-    jobs, errors = {}, []
+    jobs, errors = {}, ERRORS
+    skip = [x.lower() for x in CFG.get("excluded_companies", [])]
     for c in CFG["companies"]:
-        for word in CFG["search_words"]:
-            try:
-                for p in fetch(c, word):
-                    loc = p.get("locationsText", "") or ""
-                    path = p.get("externalPath", "") or ""
-                    reg = region_of(loc) or region_of(path)
-                    if not reg:
-                        continue
-                    key = f"{c['tenant']}:{path}"
-                    fit, track = score(p.get("title", ""))
-                    jobs[key] = {
-                        "key": key, "company": c["name"], "title": p.get("title", ""),
-                        "location": loc, "region": reg, "posted": p.get("postedOn", ""),
-                        "url": f"https://{c['tenant']}.{c['wd']}.myworkdayjobs.com/{c['site']}{path}",
-                        "fit": fit, "track": track, "loc": loc_state(loc + " " + path),
-                        "new": key not in seen,
-                    }
-            except Exception as e:
-                errors.append(f"{c['name']} / {word}: {e}")
-            time.sleep(PAUSE)
+        if c["name"].lower() in skip:
+            continue
+        ats = c.get("ats", "workday")
+        try:
+            for j in SOURCES[ats](c):
+                reg = region_of(j["location"])
+                if not reg:
+                    continue
+                key = j["id"]
+                fit, track = score(j["title"])
+                jobs[key] = {
+                    "id": key, "key": key, "company": c["name"], "title": j["title"],
+                    "location": j["display_loc"], "region": reg, "posted": j["posted"],
+                    "url": j["url"], "source": ats, "fit": fit, "track": track,
+                    "loc": loc_state(j["location"]), "new": key not in seen,
+                }
+        except Exception as e:
+            errors.append(f"{c['name']} ({ats}): {e}")
         print(f"{c['name']}: done")
 
     rows = [j for j in jobs.values() if j["loc"] != "hidden"]
@@ -106,26 +154,8 @@ def main():
                            extrasaction="ignore")
         w.writeheader(); w.writerows(rows)
     write_html(rows, matched, errors, len(jobs) - len(rows))
-    write_summary(rows, matched, errors)
     json.dump(sorted(seen | set(jobs)), open(seen_path, "w"))
     print(f"{len(rows)} jobs kept · {len(matched)} match a track · {len(errors)} errors")
-
-
-def write_summary(rows, matched, errors):
-    """Markdown body for the weekly GitHub issue (GitHub emails it to you)."""
-    new_matches = [j for j in matched if j["new"]]
-    lines = [f"**{len(new_matches)} new matching roles** this week · {len(matched)} matching in total · {len(rows)} roles in Egypt and the Gulf", ""]
-    if new_matches:
-        lines += ["| Fit | Role | Company | Location |", "|---|---|---|---|"]
-        for j in new_matches[:40]:
-            tag = " (stretch)" if j["loc"] == "stretch" else ""
-            lines.append(f"| {j['fit']} | [{j['title']}]({j['url']}) | {j['company']} | {j['location']}{tag} |")
-    else:
-        lines.append("No new QC or Planning roles at the 8 Workday companies this week.")
-    if errors:
-        lines += ["", f"<details><summary>{len(errors)} errors</summary>", ""] + [f"- {e}" for e in errors[:30]] + ["</details>"]
-    lines += ["", "Full report: `results/report.html` in the repo."]
-    open(os.path.join(OUT, "summary.md"), "w", encoding="utf-8").write("\n".join(lines))
 
 
 def write_html(rows, matched, errors, hidden):
