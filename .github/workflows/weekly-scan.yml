@@ -2,7 +2,7 @@ name: Weekly job scan
 
 on:
   schedule:
-    - cron: "0 6 * * 2"   # every Tuesday 06:00 UTC = 9:00 AM Cairo
+         - cron: "0 6 * * 0,3"   # Sunday + Wednesday 06:00 UTC = 9:00 AM Cairo
   workflow_dispatch:       # "Run workflow" button for a manual scan
 
 permissions:
