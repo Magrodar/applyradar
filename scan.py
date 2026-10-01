@@ -110,6 +110,10 @@ def score(title):
         s = 60
         if any(w in t for w in tr["senior"]):
             s += 20
+        elif any(w in t for w in tr.get("mid", [])):
+            s += 10
+        if any(w in t for w in CFG.get("junior_words", [])):
+            s -= 20
         if any(w in t for w in tr["bonus"]):
             s += 10
         if tid == "qc":
