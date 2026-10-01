@@ -79,6 +79,27 @@ def manatal_jobs(c):
         time.sleep(PAUSE)
 
 
+def age_days(posted):
+    """Days since posting, from an ISO date or Workday text ("Posted 3 Days Ago"). None if unknown."""
+    p = (posted or "").strip().lower()
+    if not p:
+        return None
+    try:
+        d = datetime.date.fromisoformat(p[:10])
+        return (datetime.date.today() - d).days
+    except ValueError:
+        pass
+    if "today" in p:
+        return 0
+    if "yesterday" in p:
+        return 1
+    digits = "".join(ch for ch in p if ch.isdigit())
+    if digits:
+        n = int(digits)
+        return n + 1 if "+" in p else n
+    return None
+
+
 SOURCES = {"workday": workday_jobs, "workable": workable_jobs, "manatal": manatal_jobs}
 
 
@@ -138,10 +159,13 @@ def main():
                     continue
                 key = j["id"]
                 fit, track = score(j["title"])
+                age = age_days(j["posted"])
+                if age is not None and age > CFG.get("stale_after_days", 45) and fit:
+                    fit = max(fit - 25, 1)  # old posting: probably filled or evergreen
                 jobs[key] = {
                     "id": key, "key": key, "company": c["name"], "title": j["title"],
                     "location": j["display_loc"], "region": reg, "posted": j["posted"],
-                    "url": j["url"], "source": ats, "fit": fit, "track": track,
+                    "url": j["url"], "source": ats, "fit": fit, "track": track, "age_days": age,
                     "loc": loc_state(j["location"]), "new": key not in seen,
                 }
         except Exception as e:
@@ -149,12 +173,12 @@ def main():
         print(f"{c['name']}: done")
 
     rows = [j for j in jobs.values() if j["loc"] != "hidden"]
-    rows.sort(key=lambda j: (-j["fit"], not j["new"], j["company"]))
+    rows.sort(key=lambda j: (-j["fit"], j["age_days"] if j["age_days"] is not None else 999, j["company"]))
     matched = [j for j in rows if j["track"]]
     json.dump({"scanned_at": datetime.datetime.utcnow().isoformat() + "Z", "jobs": rows, "errors": errors},
               open(os.path.join(OUT, "jobs.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     with open(os.path.join(OUT, "jobs.csv"), "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(f, fieldnames=["fit", "track", "new", "company", "title", "location", "region", "loc", "posted", "url"],
+        w = csv.DictWriter(f, fieldnames=["fit", "age_days", "track", "new", "company", "title", "location", "region", "loc", "posted", "url"],
                            extrasaction="ignore")
         w.writeheader(); w.writerows(rows)
     write_html(rows, matched, errors, len(jobs) - len(rows))
