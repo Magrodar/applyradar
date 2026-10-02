@@ -3,7 +3,7 @@ ApplyRadar weekly scan.
 Reads config.json, checks each company's public career site (Workday, Workable, Manatal),
 keeps jobs in Egypt and the Gulf, scores them against the QC and Planning tracks,
 and writes results/ (report.html, jobs.json, jobs.csv) plus seen_jobs.json.
-Runs free on GitHub Actions every Tuesday; can also run on any PC:  pip install requests && python scan.py
+Runs free on GitHub Actions every Sunday and Wednesday; can also run on any PC:  pip install requests && python scan.py
 """
 import csv, json, os, time, datetime, html
 import requests
@@ -39,6 +39,13 @@ def workday_jobs(c):
     for word in CFG["search_words"]:
         try:
             posts = fetch(c, word)
+        except requests.HTTPError as e:
+            code = e.response.status_code if e.response is not None else 0
+            if code in (400, 404, 422):  # wrong tenant/site: report once, skip the company
+                ERRORS.append(f"{c['name']}: career site not found ({code}) - check tenant/site")
+                return
+            ERRORS.append(f"{c['name']} / {word}: {e}")
+            posts = []
         except Exception as e:
             ERRORS.append(f"{c['name']} / {word}: {e}")
             posts = []
@@ -111,13 +118,20 @@ def region_of(text):
     return None
 
 
-def loc_state(text):
+def loc_state(text, region):
+    """Location tier and score change: hidden / east (-10) / preferred (0) / cairo (-5) / gulf (0)."""
+    L = CFG["locations"]
+    pts = L.get("points", {})
     t = (text or "").lower()
-    if any(w in t for w in CFG["locations"]["excluded"]):
-        return "hidden"
-    if any(w in t for w in CFG["locations"]["stretch"]):
-        return "stretch"
-    return "ok"
+    if any(w in t for w in L["excluded"]):
+        return "hidden", 0
+    if region == "Gulf":
+        return "gulf", pts.get("gulf", 0)
+    if any(w in t for w in L.get("east", [])):
+        return "east", pts.get("east", -10)
+    if any(w in t for w in L.get("preferred", [])):
+        return "preferred", pts.get("preferred", 0)
+    return "cairo", pts.get("cairo_or_unspecified", -5)  # Cairo, New Cairo, New Capital or just "Egypt"
 
 
 def score(title):
@@ -160,13 +174,22 @@ def main():
                 key = j["id"]
                 fit, track = score(j["title"])
                 age = age_days(j["posted"])
+                tags = []
                 if age is not None and age > CFG.get("stale_after_days", 45) and fit:
                     fit = max(fit - 25, 1)  # old posting: probably filled or evergreen
+                loc, loc_pts = loc_state(j["location"], reg)
+                if loc == "east":
+                    tags.append("East")
+                pen = CFG.get("company_penalties", {}).get(c["name"])
+                if pen:
+                    tags.append(pen["tag"])
+                if fit:
+                    fit = max(fit + loc_pts + (pen["points"] if pen else 0), 1)
                 jobs[key] = {
                     "id": key, "key": key, "company": c["name"], "title": j["title"],
                     "location": j["display_loc"], "region": reg, "posted": j["posted"],
                     "url": j["url"], "source": ats, "fit": fit, "track": track, "age_days": age,
-                    "loc": loc_state(j["location"]), "new": key not in seen,
+                    "loc": loc, "tags": tags, "new": key not in seen,
                 }
         except Exception as e:
             errors.append(f"{c['name']} ({ats}): {e}")
@@ -189,7 +212,7 @@ def main():
 def write_html(rows, matched, errors, hidden):
     now = datetime.datetime.utcnow().strftime("%d %b %Y %H:%M UTC")
     def row(j):
-        tags = ('<b class="n">NEW</b> ' if j["new"] else "") + ('<i>stretch</i>' if j["loc"] == "stretch" else "")
+        tags = ('<b class="n">NEW</b> ' if j["new"] else "") + " ".join(f'<i>{html.escape(t)}</i>' for t in j.get("tags", []))
         tr = CFG["tracks"].get(j["track"], {}).get("label", "–")
         return (f'<tr><td>{j["fit"] or "–"}</td><td><a href="{html.escape(j["url"])}">{html.escape(j["title"])}</a> {tags}</td>'
                 f'<td>{tr}</td><td>{html.escape(j["company"])}</td><td>{html.escape(j["location"])}</td><td>{html.escape(j["posted"])}</td></tr>')
