@@ -18,12 +18,36 @@ PAUSE = 1.5
 ERRORS = []
 
 
+SESSIONS = {}
+
+
+def wd_session(c):
+    """Some Workday sites (e.g. Lilly, Takeda) answer 422 unless the request carries the site's
+    cookies and CSRF token. Open the public career page once to get them."""
+    key = c["tenant"] + c["site"]
+    if key not in SESSIONS:
+        s = requests.Session()
+        s.headers.update(HEADERS)
+        try:
+            s.get(f"https://{c['tenant']}.{c['wd']}.myworkdayjobs.com/{c['site']}", timeout=30,
+                  headers={"Accept": "text/html"})
+            tok = s.cookies.get("CALYPSO_CSRF_TOKEN")
+            if tok:
+                s.headers["X-CALYPSO-CSRF-TOKEN"] = tok
+        except Exception:
+            pass
+        SESSIONS[key] = s
+    return SESSIONS[key]
+
+
 def fetch(c, word):
     url = f"https://{c['tenant']}.{c['wd']}.myworkdayjobs.com/wday/cxs/{c['tenant']}/{c['site']}/jobs"
     out, offset = [], 0
     while offset < 200:
-        r = requests.post(url, headers=HEADERS, timeout=30,
-                          json={"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": word})
+        body = {"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": word}
+        r = requests.post(url, headers=HEADERS, timeout=30, json=body)
+        if r.status_code == 422:  # retry with the site's cookies + CSRF token
+            r = wd_session(c).post(url, timeout=30, json=body)
         r.raise_for_status()
         posts = r.json().get("jobPostings", [])
         out += posts
