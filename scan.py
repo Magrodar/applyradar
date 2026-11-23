@@ -14,35 +14,32 @@ OUT = os.path.join(HERE, "results")
 os.makedirs(OUT, exist_ok=True)
 HEADERS = {"Accept": "application/json", "Content-Type": "application/json",
            "User-Agent": "ApplyRadar/0.2 (personal weekly job check)"}
-PAUSE = 4.0          # seconds between Workday requests
-COMPANY_PAUSE = 10.0 # seconds between companies
-BACKOFF = [30, 60, 120]  # waits after HTTP 429 when the site gives no Retry-After
+PAUSE = 4.0            # seconds between requests (plus a little random jitter)
+COMPANY_PAUSE = 10.0   # extra rest between two companies
+BACKOFF = [30, 60, 120]  # waits after a 429 before each retry
 ERRORS = []
 
 
+class RateLimited(Exception):
+    """Workday still answered 429 after all retries."""
+
+
 def nap(base=PAUSE):
-    """Sleep a little longer than base, with jitter, so requests don't arrive in a fixed rhythm."""
     time.sleep(base + random.uniform(0, 1.5))
 
 
-class RateLimited(Exception):
-    """The site kept answering 429 after every retry."""
-
-
 def post_with_backoff(do_post):
-    """Call do_post(); on HTTP 429 wait (Retry-After, else 30/60/120 s, max 300) and retry up to 3 times."""
-    for attempt in range(len(BACKOFF) + 1):
+    """Run do_post(); on 429 wait (Retry-After if given, else 30/60/120 s) and retry up to 3 times."""
+    for wait in BACKOFF + [None]:
         r = do_post()
         if r.status_code != 429:
             return r
-        if attempt == len(BACKOFF):
-            break
-        try:
-            wait = float(r.headers.get("Retry-After", ""))
-        except ValueError:
-            wait = BACKOFF[attempt]
-        time.sleep(min(max(wait, 1), 300))
-    raise RateLimited("429 Too Many Requests")
+        if wait is None:
+            raise RateLimited("429 Too Many Requests after 3 retries")
+        ra = r.headers.get("Retry-After", "")
+        delay = int(ra) if ra.isdigit() else wait
+        print(f"  429 received, waiting {delay}s")
+        time.sleep(min(delay, 300))
 
 
 SESSIONS = {}
@@ -91,8 +88,8 @@ def workday_jobs(c):
         try:
             posts = fetch(c, word)
         except RateLimited:
-            ERRORS.append(f"{c['name']} / {word}: 429 Too Many Requests (gave up after 3 retries, "
-                          "skipped the rest of this company)")
+            # Workday keeps refusing: stop hammering this company, move to the next one
+            ERRORS.append(f"{c['name']} / {word}: 429 Too Many Requests (gave up after 3 retries, skipped the rest of this company)")
             return
         except requests.HTTPError as e:
             code = e.response.status_code if e.response is not None else 0
