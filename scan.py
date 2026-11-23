@@ -149,8 +149,7 @@ def manatal_jobs(c):
         time.sleep(PAUSE)
 
 
-BROWSER = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-           "(KHTML, like Gecko) Chrome/124.0 Safari/537.36", "Accept-Language": "en-US,en;q=0.9"}
+PAGE_HEADERS = {"User-Agent": HEADERS["User-Agent"], "Accept": "text/html", "Accept-Language": "en-US,en;q=0.9"}
 
 
 def _text(fragment):
@@ -163,7 +162,7 @@ def successfactors_jobs(c):
     seen_ids, start = set(), 0
     while start < 1000:
         try:
-            r = get_with_backoff(f"{base}/search/", headers=BROWSER, params={
+            r = get_with_backoff(f"{base}/search/", headers=PAGE_HEADERS, params={
                 "q": "", "sortColumn": "referencedate", "sortDirection": "desc", "startrow": start})
         except RateLimited:
             RATE_LIMITED.add(c["name"])
@@ -203,9 +202,9 @@ def linkedin_jobs(c):
     match = [m.lower() for m in c.get("match", [c["name"]])]
     for loc in c.get("locations", ["Saudi Arabia", "United Arab Emirates"]):
         start = 0
-        while start < 100:
+        while start < 30:  # at most 3 pages per location
             try:
-                r = get_with_backoff(LI_URL, headers=BROWSER, params={
+                r = get_with_backoff(LI_URL, headers=PAGE_HEADERS, params={
                     "keywords": c.get("query", c["name"]), "location": loc, "start": start})
             except RateLimited:
                 RATE_LIMITED.add(c["name"])
@@ -218,6 +217,7 @@ def linkedin_jobs(c):
             cards = re.findall(r'<li>(.*?)</li>', r.text, re.S)
             if not cards:
                 break
+            hits = 0
             for card in cards:
                 company = re.search(r'base-search-card__subtitle[^>]*>(.*?)</h4>', card, re.S)
                 company = _text(company.group(1)) if company else ""
@@ -230,9 +230,12 @@ def linkedin_jobs(c):
                 if not (jid and title):
                     continue
                 where = _text(where.group(1)) if where else loc
+                hits += 1
                 yield {"id": f"li-{jid.group(1)}", "title": _text(title.group(1)), "location": where,
                        "display_loc": where, "posted": when.group(1) if when else "",
                        "url": f"https://www.linkedin.com/jobs/view/{jid.group(1)}"}
+            if not hits:  # results are sorted by relevance: no match on this page means none further on
+                break
             start += len(cards)
             nap()
         nap()
