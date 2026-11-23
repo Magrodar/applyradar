@@ -5,7 +5,7 @@ keeps jobs in Egypt and the Gulf, scores them against the QC and Planning tracks
 and writes results/ (report.html, jobs.json, jobs.csv) plus seen_jobs.json.
 Runs free on GitHub Actions every Sunday and Wednesday; can also run on any PC:  pip install requests && python scan.py
 """
-import csv, json, os, time, datetime, html
+import csv, json, os, time, datetime, html, random
 import requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -14,8 +14,35 @@ OUT = os.path.join(HERE, "results")
 os.makedirs(OUT, exist_ok=True)
 HEADERS = {"Accept": "application/json", "Content-Type": "application/json",
            "User-Agent": "ApplyRadar/0.2 (personal weekly job check)"}
-PAUSE = 1.5
+PAUSE = 4.0          # seconds between Workday requests
+COMPANY_PAUSE = 10.0 # seconds between companies
+BACKOFF = [30, 60, 120]  # waits after HTTP 429 when the site gives no Retry-After
 ERRORS = []
+
+
+def nap(base=PAUSE):
+    """Sleep a little longer than base, with jitter, so requests don't arrive in a fixed rhythm."""
+    time.sleep(base + random.uniform(0, 1.5))
+
+
+class RateLimited(Exception):
+    """The site kept answering 429 after every retry."""
+
+
+def post_with_backoff(do_post):
+    """Call do_post(); on HTTP 429 wait (Retry-After, else 30/60/120 s, max 300) and retry up to 3 times."""
+    for attempt in range(len(BACKOFF) + 1):
+        r = do_post()
+        if r.status_code != 429:
+            return r
+        if attempt == len(BACKOFF):
+            break
+        try:
+            wait = float(r.headers.get("Retry-After", ""))
+        except ValueError:
+            wait = BACKOFF[attempt]
+        time.sleep(min(max(wait, 1), 300))
+    raise RateLimited("429 Too Many Requests")
 
 
 SESSIONS = {}
@@ -45,16 +72,16 @@ def fetch(c, word):
     out, offset = [], 0
     while offset < 200:
         body = {"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": word}
-        r = requests.post(url, headers=HEADERS, timeout=30, json=body)
+        r = post_with_backoff(lambda: requests.post(url, headers=HEADERS, timeout=30, json=body))
         if r.status_code == 422:  # retry with the site's cookies + CSRF token
-            r = wd_session(c).post(url, timeout=30, json=body)
+            r = post_with_backoff(lambda: wd_session(c).post(url, timeout=30, json=body))
         r.raise_for_status()
         posts = r.json().get("jobPostings", [])
         out += posts
         if len(posts) < 20:
             break
         offset += 20
-        time.sleep(PAUSE)
+        nap()
     return out
 
 
@@ -63,6 +90,10 @@ def workday_jobs(c):
     for word in CFG["search_words"]:
         try:
             posts = fetch(c, word)
+        except RateLimited:
+            ERRORS.append(f"{c['name']} / {word}: 429 Too Many Requests (gave up after 3 retries, "
+                          "skipped the rest of this company)")
+            return
         except requests.HTTPError as e:
             code = e.response.status_code if e.response is not None else 0
             if code in (400, 404, 422):  # wrong tenant/site: report once, skip the company
@@ -79,7 +110,7 @@ def workday_jobs(c):
                    "location": (p.get("locationsText", "") or "") + " " + path,
                    "display_loc": p.get("locationsText", "") or "", "posted": p.get("postedOn", ""),
                    "url": f"https://{c['tenant']}.{c['wd']}.myworkdayjobs.com/{c['site']}{path}"}
-        time.sleep(PAUSE)
+        nap()
 
 
 def workable_jobs(c):
@@ -218,6 +249,7 @@ def main():
         except Exception as e:
             errors.append(f"{c['name']} ({ats}): {e}")
         print(f"{c['name']}: done")
+        nap(COMPANY_PAUSE)
 
     rows = [j for j in jobs.values() if j["loc"] != "hidden"]
     rows.sort(key=lambda j: (-j["fit"], j["age_days"] if j["age_days"] is not None else 999, j["company"]))
