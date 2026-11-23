@@ -19,6 +19,9 @@ PAUSE = 4.0            # seconds between requests (plus a little random jitter)
 COMPANY_PAUSE = 10.0   # extra rest between two companies
 BACKOFF = [30, 60, 120]  # waits after a 429 before each retry
 ERRORS = []
+RUN_BUDGET = 50 * 60   # stop starting new companies after 50 min so results are always saved
+STOP_AFTER_BLOCKS = 3  # if 3 companies on the same system in a row give up on 429, skip that system this run
+RATE_LIMITED = set()   # companies that gave up on 429 in this run
 
 
 class RateLimited(Exception):
@@ -39,7 +42,7 @@ def post_with_backoff(do_post):
             raise RateLimited("429 Too Many Requests after 3 retries")
         ra = r.headers.get("Retry-After", "")
         delay = int(ra) if ra.isdigit() else wait
-        print(f"  429 received, waiting {delay}s")
+        print(f"  429 received, waiting {delay}s", flush=True)
         time.sleep(min(delay, 300))
 
 
@@ -96,6 +99,7 @@ def workday_jobs(c):
             posts = fetch(c, word)
         except RateLimited:
             # Workday keeps refusing: stop hammering this company, move to the next one
+            RATE_LIMITED.add(c["name"])
             ERRORS.append(f"{c['name']} / {word}: 429 Too Many Requests (gave up after 3 retries, skipped the rest of this company)")
             return
         except requests.HTTPError as e:
@@ -162,6 +166,7 @@ def successfactors_jobs(c):
             r = get_with_backoff(f"{base}/search/", headers=BROWSER, params={
                 "q": "", "sortColumn": "referencedate", "sortDirection": "desc", "startrow": start})
         except RateLimited:
+            RATE_LIMITED.add(c["name"])
             ERRORS.append(f"{c['name']}: 429 Too Many Requests (gave up after 3 retries)")
             return
         r.raise_for_status()
@@ -203,6 +208,7 @@ def linkedin_jobs(c):
                 r = get_with_backoff(LI_URL, headers=BROWSER, params={
                     "keywords": c.get("query", c["name"]), "location": loc, "start": start})
             except RateLimited:
+                RATE_LIMITED.add(c["name"])
                 ERRORS.append(f"{c['name']} / LinkedIn {loc}: 429 Too Many Requests (gave up after 3 retries, "
                               "skipped the rest of this company)")
                 return
@@ -314,10 +320,17 @@ def main():
     seen = set(json.load(open(seen_path))) if os.path.exists(seen_path) else set()
     jobs, errors = {}, ERRORS
     skip = [x.lower() for x in CFG.get("excluded_companies", [])]
+    started, streak, blocked = time.time(), {}, {}
     for c in CFG["companies"]:
         if c["name"].lower() in skip:
             continue
         ats = c.get("ats", "workday")
+        if time.time() - started > RUN_BUDGET:
+            errors.append(f"Time limit: {c['name']} and the companies after it were not checked this run")
+            break
+        if ats in blocked:
+            blocked[ats].append(c["name"])
+            continue
         try:
             for j in SOURCES[ats](c):
                 reg = region_of(j["location"])
@@ -345,8 +358,15 @@ def main():
                 }
         except Exception as e:
             errors.append(f"{c['name']} ({ats}): {e}")
-        print(f"{c['name']}: done")
+        streak[ats] = streak.get(ats, 0) + 1 if c["name"] in RATE_LIMITED else 0
+        if streak[ats] >= STOP_AFTER_BLOCKS:
+            blocked[ats] = []
+        print(f"{c['name']}: done", flush=True)
         nap(COMPANY_PAUSE)
+    for ats, names in blocked.items():
+        if names:
+            errors.append(f"{ats}: {STOP_AFTER_BLOCKS} companies in a row answered 429, so these were skipped "
+                          f"this run: {', '.join(names)}")
 
     rows = [j for j in jobs.values() if j["loc"] != "hidden"]
     rows.sort(key=lambda j: (-j["fit"], j["age_days"] if j["age_days"] is not None else 999, j["company"]))
