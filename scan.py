@@ -1,11 +1,12 @@
 """
 ApplyRadar weekly scan.
-Reads config.json, checks each company's public career site (Workday, Workable, Manatal),
+Reads config.json, checks each company's public career site (Workday, Workable, Manatal, SuccessFactors)
+or its public LinkedIn job listings,
 keeps jobs in Egypt and the Gulf, scores them against the QC and Planning tracks,
 and writes results/ (report.html, jobs.json, jobs.csv) plus seen_jobs.json.
 Runs free on GitHub Actions every Sunday and Wednesday; can also run on any PC:  pip install requests && python scan.py
 """
-import csv, json, os, time, datetime, html, random
+import csv, json, os, re, time, datetime, html, random
 import requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -40,6 +41,12 @@ def post_with_backoff(do_post):
         delay = int(ra) if ra.isdigit() else wait
         print(f"  429 received, waiting {delay}s")
         time.sleep(min(delay, 300))
+
+
+def get_with_backoff(url, **kw):
+    """GET with the same 429 backoff as Workday requests."""
+    kw.setdefault("timeout", 30)
+    return post_with_backoff(lambda: requests.get(url, **kw))
 
 
 SESSIONS = {}
@@ -138,6 +145,93 @@ def manatal_jobs(c):
         time.sleep(PAUSE)
 
 
+BROWSER = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+           "(KHTML, like Gecko) Chrome/124.0 Safari/537.36", "Accept-Language": "en-US,en;q=0.9"}
+
+
+def _text(fragment):
+    return html.unescape(re.sub(r"<[^>]+>", " ", fragment or "")).strip()
+
+
+def successfactors_jobs(c):
+    """SAP SuccessFactors career site (RMK), e.g. careers.julphar.net: reads the public search pages."""
+    base = c["base"].rstrip("/")
+    seen_ids, start = set(), 0
+    while start < 1000:
+        try:
+            r = get_with_backoff(f"{base}/search/", headers=BROWSER, params={
+                "q": "", "sortColumn": "referencedate", "sortDirection": "desc", "startrow": start})
+        except RateLimited:
+            ERRORS.append(f"{c['name']}: 429 Too Many Requests (gave up after 3 retries)")
+            return
+        r.raise_for_status()
+        rows = re.findall(r'<tr[^>]*class="[^"]*data-row[^"]*"[^>]*>(.*?)</tr>', r.text, re.S)
+        added = 0
+        for row in rows:
+            a = re.search(r'<a[^>]*href="(/job/[^"]+)"[^>]*>(.*?)</a>', row, re.S)
+            if not a:
+                continue
+            path = html.unescape(a.group(1))
+            jid = path.rstrip("/").rsplit("/", 1)[-1]
+            if jid in seen_ids:
+                continue
+            seen_ids.add(jid)
+            added += 1
+            loc = re.search(r'class="[^"]*jobLocation[^"]*"[^>]*>(.*?)</span>', row, re.S)
+            date = re.search(r'class="[^"]*jobDate[^"]*"[^>]*>(.*?)</span>', row, re.S)
+            loc = _text(loc.group(1)) if loc else ""
+            yield {"id": f"sf-{c['name'][:12].lower().replace(' ', '')}-{jid}", "title": _text(a.group(2)),
+                   "location": loc + " " + path, "display_loc": loc,
+                   "posted": _text(date.group(1)) if date else "", "url": base + path}
+        if not added:
+            break
+        start += added
+        nap()
+
+
+LI_URL = "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search"
+
+
+def linkedin_jobs(c):
+    """LinkedIn public job search (no login), for companies whose own career site can't be read.
+    Searches the company name in each location and keeps only cards posted by that company."""
+    match = [m.lower() for m in c.get("match", [c["name"]])]
+    for loc in c.get("locations", ["Saudi Arabia", "United Arab Emirates"]):
+        start = 0
+        while start < 100:
+            try:
+                r = get_with_backoff(LI_URL, headers=BROWSER, params={
+                    "keywords": c.get("query", c["name"]), "location": loc, "start": start})
+            except RateLimited:
+                ERRORS.append(f"{c['name']} / LinkedIn {loc}: 429 Too Many Requests (gave up after 3 retries, "
+                              "skipped the rest of this company)")
+                return
+            if r.status_code in (400, 404):
+                break
+            r.raise_for_status()
+            cards = re.findall(r'<li>(.*?)</li>', r.text, re.S)
+            if not cards:
+                break
+            for card in cards:
+                company = re.search(r'base-search-card__subtitle[^>]*>(.*?)</h4>', card, re.S)
+                company = _text(company.group(1)) if company else ""
+                if not any(m in company.lower() for m in match):
+                    continue
+                jid = re.search(r'jobPosting:(\d+)', card)
+                title = re.search(r'base-search-card__title[^>]*>(.*?)</h3>', card, re.S)
+                where = re.search(r'job-search-card__location[^>]*>(.*?)</span>', card, re.S)
+                when = re.search(r'<time[^>]*datetime="([^"]+)"', card)
+                if not (jid and title):
+                    continue
+                where = _text(where.group(1)) if where else loc
+                yield {"id": f"li-{jid.group(1)}", "title": _text(title.group(1)), "location": where,
+                       "display_loc": where, "posted": when.group(1) if when else "",
+                       "url": f"https://www.linkedin.com/jobs/view/{jid.group(1)}"}
+            start += len(cards)
+            nap()
+        nap()
+
+
 def age_days(posted):
     """Days since posting, from an ISO date or Workday text ("Posted 3 Days Ago"). None if unknown."""
     p = (posted or "").strip().lower()
@@ -148,6 +242,11 @@ def age_days(posted):
         return (datetime.date.today() - d).days
     except ValueError:
         pass
+    for fmt in ("%b %d, %Y", "%d %b %Y", "%d/%m/%Y", "%B %d, %Y"):  # SuccessFactors dates, e.g. "Nov 20, 2026"
+        try:
+            return (datetime.date.today() - datetime.datetime.strptime(posted.strip(), fmt).date()).days
+        except ValueError:
+            pass
     if "today" in p:
         return 0
     if "yesterday" in p:
@@ -159,11 +258,12 @@ def age_days(posted):
     return None
 
 
-SOURCES = {"workday": workday_jobs, "workable": workable_jobs, "manatal": manatal_jobs}
+SOURCES = {"workday": workday_jobs, "workable": workable_jobs, "manatal": manatal_jobs,
+           "successfactors": successfactors_jobs, "linkedin": linkedin_jobs}
 
 
 def region_of(text):
-    t = (text or "").lower()
+    t = " " + (text or "").lower()
     for reg, words in CFG["regions"].items():
         if any(w in t for w in words):
             return reg
