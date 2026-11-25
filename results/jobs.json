@@ -1,5 +1,5 @@
 {
- "scanned_at": "2026-11-24T00:59:20.824889Z",
+ "scanned_at": "2026-11-25T17:23:55.914233Z",
  "jobs": [
   {
    "id": "eva-pharma-F8850E77C1",
@@ -13,7 +13,7 @@
    "source": "workable",
    "fit": 85,
    "track": "qc",
-   "age_days": 23,
+   "age_days": 24,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -64,7 +64,7 @@
    "source": "workable",
    "fit": 70,
    "track": "planning",
-   "age_days": 7,
+   "age_days": 8,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -81,7 +81,7 @@
    "source": "workable",
    "fit": 70,
    "track": "qc",
-   "age_days": 156,
+   "age_days": 157,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -115,8 +115,25 @@
    "source": "workable",
    "fit": 60,
    "track": "qc",
-   "age_days": 62,
+   "age_days": 63,
    "loc": "preferred",
+   "tags": [],
+   "new": false
+  },
+  {
+   "id": "li-4486430033",
+   "key": "li-4486430033",
+   "company": "Henkel",
+   "title": "R&D Packaging Lab Technician",
+   "location": "Dubai, Dubai, United Arab Emirates",
+   "region": "Gulf",
+   "posted": "2026-11-24",
+   "url": "https://www.linkedin.com/jobs/view/4486430033",
+   "source": "linkedin",
+   "fit": 45,
+   "track": "qc",
+   "age_days": 1,
+   "loc": "gulf",
    "tags": [],
    "new": false
   },
@@ -132,27 +149,10 @@
    "source": "successfactors",
    "fit": 45,
    "track": "qc",
-   "age_days": 20,
+   "age_days": 21,
    "loc": "gulf",
    "tags": [],
-   "new": true
-  },
-  {
-   "id": "li-4486430033",
-   "key": "li-4486430033",
-   "company": "Henkel",
-   "title": "R&D Packaging Lab Technician",
-   "location": "Dubai, Dubai, United Arab Emirates",
-   "region": "Gulf",
-   "posted": "2026-11-02",
-   "url": "https://www.linkedin.com/jobs/view/4486430033",
-   "source": "linkedin",
-   "fit": 45,
-   "track": "qc",
-   "age_days": 22,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "grifols-egypt-for-pl-X963R85R",
@@ -183,10 +183,10 @@
    "source": "linkedin",
    "fit": 40,
    "track": "planning",
-   "age_days": 7,
+   "age_days": 8,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-7138F758AD",
@@ -200,7 +200,7 @@
    "source": "workable",
    "fit": 40,
    "track": "qc",
-   "age_days": 450,
+   "age_days": 451,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -302,7 +302,7 @@
    "source": "workable",
    "fit": 35,
    "track": "planning",
-   "age_days": 69,
+   "age_days": 70,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -319,7 +319,7 @@
    "source": "workable",
    "fit": 30,
    "track": "qc",
-   "age_days": 72,
+   "age_days": 73,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -336,7 +336,7 @@
    "source": "workable",
    "fit": 30,
    "track": "qc",
-   "age_days": 285,
+   "age_days": 286,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -353,7 +353,7 @@
    "source": "workable",
    "fit": 25,
    "track": "planning",
-   "age_days": 141,
+   "age_days": 142,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -370,7 +370,7 @@
    "source": "workable",
    "fit": 20,
    "track": "qc",
-   "age_days": 68,
+   "age_days": 69,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -387,7 +387,7 @@
    "source": "workable",
    "fit": 20,
    "track": "qc",
-   "age_days": 295,
+   "age_days": 296,
    "loc": "east",
    "tags": [
     "East"
@@ -406,7 +406,7 @@
    "source": "workable",
    "fit": 20,
    "track": "qc",
-   "age_days": 504,
+   "age_days": 505,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -423,7 +423,7 @@
    "source": "workable",
    "fit": 10,
    "track": "qc",
-   "age_days": 161,
+   "age_days": 162,
    "loc": "east",
    "tags": [
     "East"
@@ -431,35 +431,222 @@
    "new": false
   },
   {
-   "id": "pfizer-4967802-2",
-   "key": "pfizer-4967802-2",
-   "company": "Pfizer",
-   "title": "Senior Director, Technology Strategy, Product & Delivery Lead",
-   "location": "6 Locations",
-   "region": "Egypt",
-   "posted": "Posted Today",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/United-Kingdom---Walton-Oaks/Senior-Director--Technology-Strategy--Product---Delivery-Lead_4967802-2",
-   "source": "workday",
+   "id": "li-4490140102",
+   "key": "li-4490140102",
+   "company": "Boehringer Ingelheim",
+   "title": "Medical Representative",
+   "location": "Al Dar Al Baida District, Riyadh, Saudi Arabia",
+   "region": "Gulf",
+   "posted": "2026-11-25",
+   "url": "https://www.linkedin.com/jobs/view/4490140102",
+   "source": "linkedin",
    "fit": 0,
    "track": null,
    "age_days": 0,
+   "loc": "gulf",
+   "tags": [],
+   "new": false
+  },
+  {
+   "id": "li-4494620607",
+   "key": "li-4494620607",
+   "company": "Boehringer Ingelheim",
+   "title": "Compliance Specialist Coordinator IMETA",
+   "location": "Dubai, Dubai, United Arab Emirates",
+   "region": "Gulf",
+   "posted": "2026-11-25",
+   "url": "https://www.linkedin.com/jobs/view/4494620607",
+   "source": "linkedin",
+   "fit": 0,
+   "track": null,
+   "age_days": 0,
+   "loc": "gulf",
+   "tags": [],
+   "new": true
+  },
+  {
+   "id": "li-4494916986",
+   "key": "li-4494916986",
+   "company": "Nahdi Medical Company",
+   "title": "Family Medicine Registrar (207966)",
+   "location": "Jeddah, Makkah, Saudi Arabia",
+   "region": "Gulf",
+   "posted": "2026-11-25",
+   "url": "https://www.linkedin.com/jobs/view/4494916986",
+   "source": "linkedin",
+   "fit": 0,
+   "track": null,
+   "age_days": 0,
+   "loc": "gulf",
+   "tags": [],
+   "new": true
+  },
+  {
+   "id": "li-4494925537",
+   "key": "li-4494925537",
+   "company": "Nahdi Medical Company",
+   "title": "Healthcare Business Data Analytics Senior Manager (2023843)",
+   "location": "Jeddah, Makkah, Saudi Arabia",
+   "region": "Gulf",
+   "posted": "2026-11-25",
+   "url": "https://www.linkedin.com/jobs/view/4494925537",
+   "source": "linkedin",
+   "fit": 0,
+   "track": null,
+   "age_days": 0,
+   "loc": "gulf",
+   "tags": [],
+   "new": true
+  },
+  {
+   "id": "li-4494938110",
+   "key": "li-4494938110",
+   "company": "Nahdi Medical Company",
+   "title": "Prosthodontics Registrar-Riyadh-(207270)",
+   "location": "Riyadh, Riyadh, Saudi Arabia",
+   "region": "Gulf",
+   "posted": "2026-11-25",
+   "url": "https://www.linkedin.com/jobs/view/4494938110",
+   "source": "linkedin",
+   "fit": 0,
+   "track": null,
+   "age_days": 0,
+   "loc": "gulf",
+   "tags": [],
+   "new": true
+  },
+  {
+   "id": "li-4494920881",
+   "key": "li-4494920881",
+   "company": "Nahdi Medical Company",
+   "title": "Personal Care Promotions Marketing Senior Specialist (2023841)",
+   "location": "Jeddah, Makkah, Saudi Arabia",
+   "region": "Gulf",
+   "posted": "2026-11-25",
+   "url": "https://www.linkedin.com/jobs/view/4494920881",
+   "source": "linkedin",
+   "fit": 0,
+   "track": null,
+   "age_days": 0,
+   "loc": "gulf",
+   "tags": [],
+   "new": true
+  },
+  {
+   "id": "li-4494118782",
+   "key": "li-4494118782",
+   "company": "Boehringer Ingelheim",
+   "title": "HP Distribution Excellence & Data Management Lead - IMETA",
+   "location": "Dubai, Dubai, United Arab Emirates",
+   "region": "Gulf",
+   "posted": "2026-11-24",
+   "url": "https://www.linkedin.com/jobs/view/4494118782",
+   "source": "linkedin",
+   "fit": 0,
+   "track": null,
+   "age_days": 1,
+   "loc": "gulf",
+   "tags": [],
+   "new": true
+  },
+  {
+   "id": "gsk-451929",
+   "key": "gsk-451929",
+   "company": "GSK",
+   "title": "Regulatory Specialist, Country Labelling",
+   "location": "Egypt - Cairo",
+   "region": "Egypt",
+   "posted": "Posted Yesterday",
+   "url": "https://gsk.wd5.myworkdayjobs.com/GSKCareers/job/Egypt---Cairo/Regulatory-Specialist--Country-Labelling_451929",
+   "source": "workday",
+   "fit": 0,
+   "track": null,
+   "age_days": 1,
    "loc": "cairo",
    "tags": [],
    "new": true
   },
   {
-   "id": "pfizer-4968353-1",
-   "key": "pfizer-4968353-1",
-   "company": "Pfizer",
-   "title": "Outsource Lead Restricted Markets",
-   "location": "8 Locations",
+   "id": "li-4486432036",
+   "key": "li-4486432036",
+   "company": "Henkel",
+   "title": "Packaging Engineer Home care",
+   "location": "Dubai, Dubai, United Arab Emirates",
    "region": "Gulf",
-   "posted": "Posted Today",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/United-Arab-Emirates---Dubai/Outsource-Lead_4968353-1",
-   "source": "workday",
+   "posted": "2026-11-24",
+   "url": "https://www.linkedin.com/jobs/view/4486432036",
+   "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 0,
+   "age_days": 1,
+   "loc": "gulf",
+   "tags": [],
+   "new": false
+  },
+  {
+   "id": "sf-julphar-733590822",
+   "key": "sf-julphar-733590822",
+   "company": "Julphar",
+   "title": "Product Specialist",
+   "location": "Dubai, United Arab Emirates",
+   "region": "Gulf",
+   "posted": "24 Nov 2026",
+   "url": "https://careers.julphar.net/job/Dubai-Product-Specialist/733590822/",
+   "source": "successfactors",
+   "fit": 0,
+   "track": null,
+   "age_days": 1,
+   "loc": "gulf",
+   "tags": [],
+   "new": false
+  },
+  {
+   "id": "sf-julphar-733671322",
+   "key": "sf-julphar-733671322",
+   "company": "Julphar",
+   "title": "Jr. Specialist - Quality Assurance",
+   "location": "Ras Al khaima, United Arab Emirates",
+   "region": "Gulf",
+   "posted": "24 Nov 2026",
+   "url": "https://careers.julphar.net/job/Ras-Al-khaima-Jr_-Specialist-Quality-Assurance/733671322/",
+   "source": "successfactors",
+   "fit": 0,
+   "track": null,
+   "age_days": 1,
+   "loc": "gulf",
+   "tags": [],
+   "new": true
+  },
+  {
+   "id": "sf-julphar-733672422",
+   "key": "sf-julphar-733672422",
+   "company": "Julphar",
+   "title": "Electronics Engineer",
+   "location": "Ras Al khaima, United Arab Emirates",
+   "region": "Gulf",
+   "posted": "24 Nov 2026",
+   "url": "https://careers.julphar.net/job/Ras-Al-khaima-Electronics-Engineer/733672422/",
+   "source": "successfactors",
+   "fit": 0,
+   "track": null,
+   "age_days": 1,
+   "loc": "gulf",
+   "tags": [],
+   "new": true
+  },
+  {
+   "id": "li-4494392321",
+   "key": "li-4494392321",
+   "company": "Nahdi Medical Company",
+   "title": "Loyalty Product Operations Senior Specialist (2023809)",
+   "location": "Jeddah, Makkah, Saudi Arabia",
+   "region": "Gulf",
+   "posted": "2026-11-24",
+   "url": "https://www.linkedin.com/jobs/view/4494392321",
+   "source": "linkedin",
+   "fit": 0,
+   "track": null,
+   "age_days": 1,
    "loc": "gulf",
    "tags": [],
    "new": true
@@ -476,10 +663,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 1,
+   "age_days": 2,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4493758548",
@@ -493,10 +680,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 1,
+   "age_days": 2,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-731876222",
@@ -510,10 +697,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 1,
+   "age_days": 2,
    "loc": "cairo",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733668922",
@@ -527,10 +714,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 1,
+   "age_days": 2,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733668422",
@@ -544,10 +731,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 1,
+   "age_days": 2,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4493771178",
@@ -561,10 +748,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 1,
+   "age_days": 2,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4493740954",
@@ -578,350 +765,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 1,
+   "age_days": 2,
    "loc": "gulf",
    "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968346",
-   "key": "pfizer-4968346",
-   "company": "Pfizer",
-   "title": "Sr Access Manager Vaccines Egypt, Levant, Iraq",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Sr-Access-Manager-Vaccines-Egypt--Levant--Iraq_4968346",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968347-1",
-   "key": "pfizer-4968347-1",
-   "company": "Pfizer",
-   "title": "Sr Access Manager Oncology & RD",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Sr-Access-Manager-Oncology---RD_4968347-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968348-1",
-   "key": "pfizer-4968348-1",
-   "company": "Pfizer",
-   "title": "Sr Manager Pricing HTA, HEOR",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Sr-Manager-Pricing-HTA--HEOR_4968348-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968350-1",
-   "key": "pfizer-4968350-1",
-   "company": "Pfizer",
-   "title": "HEOR Manager",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/HEOR-Manager_4968350-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968349-1",
-   "key": "pfizer-4968349-1",
-   "company": "Pfizer",
-   "title": "Pricing Manager",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Pricing-Manager_4968349-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968276",
-   "key": "pfizer-4968276",
-   "company": "Pfizer",
-   "title": "Country Brand Manager Eliquis",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Country-Brand-Manager-Eliquis_4968276",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968364",
-   "key": "pfizer-4968364",
-   "company": "Pfizer",
-   "title": "Tender Specialist Gulf",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Tender-Specialist-Gulf_4968364",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968331-1",
-   "key": "pfizer-4968331-1",
-   "company": "Pfizer",
-   "title": "Marketing & Launch Excellence & AI",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Marketing---Launch-Excellence---AI_4968331-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968362-1",
-   "key": "pfizer-4968362-1",
-   "company": "Pfizer",
-   "title": "KAM & Distribution Lead",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/KAM---Distribution-Lead_4968362-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968274",
-   "key": "pfizer-4968274",
-   "company": "Pfizer",
-   "title": "Country Brand Lead - 3 positions",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Country-Brand-Lead---3-positions_4968274",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968361",
-   "key": "pfizer-4968361",
-   "company": "Pfizer",
-   "title": "VMG Manager",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/VMG-Manager_4968361",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968332-1",
-   "key": "pfizer-4968332-1",
-   "company": "Pfizer",
-   "title": "Content & Channel Excellence",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Content---Channel-Excellence_4968332-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968333-1",
-   "key": "pfizer-4968333-1",
-   "company": "Pfizer",
-   "title": "Patient Support Partner - 2 positions",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Patient-Support-Partner---2-positions_4968333-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968339-1",
-   "key": "pfizer-4968339-1",
-   "company": "Pfizer",
-   "title": "Therapy Area Engagement Manager - 2 positions",
-   "location": "Egypt - Cairo",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Therapy-Area-Engagement-Manager---2-positions_4968339-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968352-1",
-   "key": "pfizer-4968352-1",
-   "company": "Pfizer",
-   "title": "Outsource Lead Lebanon and Jordan",
-   "location": "3 Locations",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Outsource-Lead-Lebanon-and-Jordan_4968352-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968351-1",
-   "key": "pfizer-4968351-1",
-   "company": "Pfizer",
-   "title": "Outsource Commercial Manager - 3 positions",
-   "location": "3 Locations",
-   "region": "Egypt",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Egypt---Cairo/Outsource-Commercial-Manager---3-positions_4968351-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968264-1",
-   "key": "pfizer-4968264-1",
-   "company": "Pfizer",
-   "title": "Country Brand Lead RSV / Abrysvo",
-   "location": "United Arab Emirates - Dubai",
-   "region": "Gulf",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/United-Arab-Emirates---Dubai/Country-Brand-Lead-RSV---Abrysvo_4968264-1",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968269",
-   "key": "pfizer-4968269",
-   "company": "Pfizer",
-   "title": "Country Brand Lead Lung/Hematology",
-   "location": "United Arab Emirates - Dubai",
-   "region": "Gulf",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/United-Arab-Emirates---Dubai/Country-Brand-Lead-Lung-Hematology_4968269",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968275",
-   "key": "pfizer-4968275",
-   "company": "Pfizer",
-   "title": "Country Brand Manager - 3 positions",
-   "location": "United Arab Emirates - Dubai",
-   "region": "Gulf",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/United-Arab-Emirates---Dubai/Country-Brand-Manager---3-positions_4968275",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "pfizer-4968265",
-   "key": "pfizer-4968265",
-   "company": "Pfizer",
-   "title": "Network Account Manager",
-   "location": "Kuwait - Kuwait",
-   "region": "Gulf",
-   "posted": "Posted Yesterday",
-   "url": "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/Kuwait---Kuwait/Network-Account-Manager_4968265",
-   "source": "workday",
-   "fit": 0,
-   "track": null,
-   "age_days": 1,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4493635999",
@@ -935,10 +782,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 1,
+   "age_days": 2,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4493733651",
@@ -952,10 +799,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 1,
+   "age_days": 2,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4492354312",
@@ -969,10 +816,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 2,
+   "age_days": 3,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4468652831",
@@ -986,10 +833,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 2,
+   "age_days": 3,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4492430416",
@@ -1003,10 +850,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 5,
+   "age_days": 6,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4492135826",
@@ -1020,10 +867,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 5,
+   "age_days": 6,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4484707478",
@@ -1037,10 +884,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 5,
+   "age_days": 6,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4491360867",
@@ -1054,10 +901,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 5,
+   "age_days": 6,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4492149474",
@@ -1071,10 +918,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 5,
+   "age_days": 6,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4490761027",
@@ -1088,10 +935,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 6,
+   "age_days": 7,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4491860752",
@@ -1105,27 +952,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 6,
+   "age_days": 7,
    "loc": "gulf",
    "tags": [],
-   "new": true
-  },
-  {
-   "id": "sf-julphar-733572422",
-   "key": "sf-julphar-733572422",
-   "company": "Julphar",
-   "title": "Portfolio Manager",
-   "location": "Ras Al khaima, United Arab Emirates",
-   "region": "Gulf",
-   "posted": "18 Nov 2026",
-   "url": "https://careers.julphar.net/job/Ras-Al-khaima-Portfolio-Manager/733572422/",
-   "source": "successfactors",
-   "fit": 0,
-   "track": null,
-   "age_days": 6,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733573022",
@@ -1139,10 +969,27 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 6,
+   "age_days": 7,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
+  },
+  {
+   "id": "sf-julphar-733572422",
+   "key": "sf-julphar-733572422",
+   "company": "Julphar",
+   "title": "Portfolio Manager",
+   "location": "Ras Al khaima, United Arab Emirates",
+   "region": "Gulf",
+   "posted": "18 Nov 2026",
+   "url": "https://careers.julphar.net/job/Ras-Al-khaima-Portfolio-Manager/733572422/",
+   "source": "successfactors",
+   "fit": 0,
+   "track": null,
+   "age_days": 7,
+   "loc": "gulf",
+   "tags": [],
+   "new": false
   },
   {
    "id": "li-4482952351",
@@ -1156,10 +1003,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 6,
+   "age_days": 7,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4490136234",
@@ -1173,10 +1020,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 7,
+   "age_days": 8,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4483678171",
@@ -1190,10 +1037,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 7,
+   "age_days": 8,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-E173468904",
@@ -1207,7 +1054,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 7,
+   "age_days": 8,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -1224,10 +1071,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 7,
+   "age_days": 8,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4490121760",
@@ -1241,27 +1088,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 8,
+   "age_days": 9,
    "loc": "gulf",
    "tags": [],
-   "new": true
-  },
-  {
-   "id": "li-4490140102",
-   "key": "li-4490140102",
-   "company": "Boehringer Ingelheim",
-   "title": "Medical Representative",
-   "location": "Al Dar Al Baida District, Riyadh, Saudi Arabia",
-   "region": "Gulf",
-   "posted": "2026-11-16",
-   "url": "https://www.linkedin.com/jobs/view/4490140102",
-   "source": "linkedin",
-   "fit": 0,
-   "track": null,
-   "age_days": 8,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4490133417",
@@ -1275,10 +1105,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 8,
+   "age_days": 9,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4490126573",
@@ -1292,10 +1122,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 8,
+   "age_days": 9,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-732738522",
@@ -1309,10 +1139,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 8,
+   "age_days": 9,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733399422",
@@ -1326,10 +1156,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 9,
+   "age_days": 10,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4490243119",
@@ -1343,10 +1173,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 9,
+   "age_days": 10,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-732415622",
@@ -1360,10 +1190,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 10,
+   "age_days": 11,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-732272022",
@@ -1377,10 +1207,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 10,
+   "age_days": 11,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4480071036",
@@ -1394,27 +1224,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 11,
+   "age_days": 12,
    "loc": "gulf",
    "tags": [],
-   "new": true
-  },
-  {
-   "id": "sf-julphar-733389322",
-   "key": "sf-julphar-733389322",
-   "company": "Julphar",
-   "title": "Specialist - TA & Capability Assessment",
-   "location": "Ras Al khaima, United Arab Emirates",
-   "region": "Gulf",
-   "posted": "13 Nov 2026",
-   "url": "https://careers.julphar.net/job/Ras-Al-khaima-Specialist-TA-&-Capability-Assessment/733389322/",
-   "source": "successfactors",
-   "fit": 0,
-   "track": null,
-   "age_days": 11,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733211822",
@@ -1428,10 +1241,27 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 11,
+   "age_days": 12,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
+  },
+  {
+   "id": "sf-julphar-733389322",
+   "key": "sf-julphar-733389322",
+   "company": "Julphar",
+   "title": "Specialist - TA & Capability Assessment",
+   "location": "Ras Al khaima, United Arab Emirates",
+   "region": "Gulf",
+   "posted": "13 Nov 2026",
+   "url": "https://careers.julphar.net/job/Ras-Al-khaima-Specialist-TA-&-Capability-Assessment/733389322/",
+   "source": "successfactors",
+   "fit": 0,
+   "track": null,
+   "age_days": 12,
+   "loc": "gulf",
+   "tags": [],
+   "new": false
   },
   {
    "id": "eva-pharma-6AC84D7CE1",
@@ -1445,7 +1275,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 12,
+   "age_days": 13,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -1462,10 +1292,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 12,
+   "age_days": 13,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4464624934",
@@ -1479,10 +1309,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 12,
+   "age_days": 13,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733551722",
@@ -1496,10 +1326,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 12,
+   "age_days": 13,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733551922",
@@ -1513,24 +1343,24 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 12,
+   "age_days": 13,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
-   "id": "novartis-REQ-10091738-1",
-   "key": "novartis-REQ-10091738-1",
-   "company": "Novartis",
-   "title": "Payroll Services Senior Expert",
-   "location": "New Cairo",
+   "id": "sf-julphar-733017422",
+   "key": "sf-julphar-733017422",
+   "company": "Julphar",
+   "title": "Medical Representative",
+   "location": "Egypt",
    "region": "Egypt",
-   "posted": "Posted 12 Days Ago",
-   "url": "https://novartis.wd3.myworkdayjobs.com/Novartis_Careers/job/New-Cairo/Payroll-Services-Senior-Expert_REQ-10091738-1",
-   "source": "workday",
+   "posted": "11 Nov 2026",
+   "url": "https://careers.julphar.net/job/Medical-Representative/733017422/",
+   "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 12,
+   "age_days": 14,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -1547,27 +1377,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 13,
+   "age_days": 14,
    "loc": "gulf",
    "tags": [],
-   "new": true
-  },
-  {
-   "id": "sf-julphar-733017422",
-   "key": "sf-julphar-733017422",
-   "company": "Julphar",
-   "title": "Medical Representative",
-   "location": "Egypt",
-   "region": "Egypt",
-   "posted": "11 Nov 2026",
-   "url": "https://careers.julphar.net/job/Medical-Representative/733017422/",
-   "source": "successfactors",
-   "fit": 0,
-   "track": null,
-   "age_days": 13,
-   "loc": "cairo",
-   "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733638822",
@@ -1581,27 +1394,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 13,
+   "age_days": 14,
    "loc": "gulf",
    "tags": [],
-   "new": true
-  },
-  {
-   "id": "li-4476815633",
-   "key": "li-4476815633",
-   "company": "L'Oréal",
-   "title": "[UAE] Marketing Graduate Trainee- January 2027",
-   "location": "Dubai, Dubai, United Arab Emirates",
-   "region": "Gulf",
-   "posted": "2026-11-11",
-   "url": "https://www.linkedin.com/jobs/view/4476815633",
-   "source": "linkedin",
-   "fit": 0,
-   "track": null,
-   "age_days": 13,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4487469860",
@@ -1615,10 +1411,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 14,
+   "age_days": 15,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4481287257",
@@ -1632,10 +1428,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 14,
+   "age_days": 15,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4489623319",
@@ -1649,10 +1445,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 14,
+   "age_days": 15,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4487476920",
@@ -1666,10 +1462,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 14,
+   "age_days": 15,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4487488532",
@@ -1683,10 +1479,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 14,
+   "age_days": 15,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4487498049",
@@ -1700,27 +1496,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 14,
+   "age_days": 15,
    "loc": "gulf",
    "tags": [],
-   "new": true
-  },
-  {
-   "id": "li-4487490393",
-   "key": "li-4487490393",
-   "company": "Hikma",
-   "title": "Mechanical Engineering (Tamheer Program)",
-   "location": "Riyadh, Riyadh, Saudi Arabia",
-   "region": "Gulf",
-   "posted": "2026-11-10",
-   "url": "https://www.linkedin.com/jobs/view/4487490393",
-   "source": "linkedin",
-   "fit": 0,
-   "track": null,
-   "age_days": 14,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-732468422",
@@ -1734,10 +1513,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 14,
+   "age_days": 15,
    "loc": "cairo",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4487911959",
@@ -1751,10 +1530,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 15,
+   "age_days": 16,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4487913903",
@@ -1768,10 +1547,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 15,
+   "age_days": 16,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4487930099",
@@ -1785,10 +1564,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 15,
+   "age_days": 16,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4487928157",
@@ -1802,10 +1581,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 15,
+   "age_days": 16,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-732793622",
@@ -1819,10 +1598,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 16,
+   "age_days": 17,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4426228506",
@@ -1836,10 +1615,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 17,
+   "age_days": 18,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733373222",
@@ -1853,10 +1632,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 17,
+   "age_days": 18,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733288022",
@@ -1870,10 +1649,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 18,
+   "age_days": 19,
    "loc": "cairo",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-D518FEAA66",
@@ -1887,7 +1666,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 19,
+   "age_days": 20,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -1904,10 +1683,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 20,
+   "age_days": 21,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4485092138",
@@ -1921,10 +1700,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 20,
+   "age_days": 21,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4485074824",
@@ -1938,10 +1717,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 20,
+   "age_days": 21,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733522422",
@@ -1955,10 +1734,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 20,
+   "age_days": 21,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733525322",
@@ -1972,10 +1751,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 20,
+   "age_days": 21,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733620222",
@@ -1989,10 +1768,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 20,
+   "age_days": 21,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4486357458",
@@ -2006,10 +1785,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 20,
+   "age_days": 21,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4486500328",
@@ -2023,10 +1802,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 20,
+   "age_days": 21,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4486371308",
@@ -2040,10 +1819,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 20,
+   "age_days": 21,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-DCF53593F0",
@@ -2057,7 +1836,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 21,
+   "age_days": 22,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2074,7 +1853,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 21,
+   "age_days": 22,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2091,44 +1870,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 21,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "li-4486887549",
-   "key": "li-4486887549",
-   "company": "Merck Group",
-   "title": "Product Specialist-Oncology",
-   "location": "Riyadh, Riyadh, Saudi Arabia",
-   "region": "Gulf",
-   "posted": "2026-11-03",
-   "url": "https://www.linkedin.com/jobs/view/4486887549",
-   "source": "linkedin",
-   "fit": 0,
-   "track": null,
-   "age_days": 21,
-   "loc": "gulf",
-   "tags": [],
-   "new": true
-  },
-  {
-   "id": "li-4486432036",
-   "key": "li-4486432036",
-   "company": "Henkel",
-   "title": "Packaging Engineer Home care",
-   "location": "Dubai, Dubai, United Arab Emirates",
-   "region": "Gulf",
-   "posted": "2026-11-02",
-   "url": "https://www.linkedin.com/jobs/view/4486432036",
-   "source": "linkedin",
-   "fit": 0,
-   "track": null,
    "age_days": 22,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4485687608",
@@ -2142,10 +1887,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 23,
+   "age_days": 24,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4483027755",
@@ -2159,10 +1904,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 24,
+   "age_days": 25,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-732616122",
@@ -2176,10 +1921,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 25,
+   "age_days": 26,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733609622",
@@ -2193,10 +1938,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 25,
+   "age_days": 26,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-40AAAA6FC4",
@@ -2210,7 +1955,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 26,
+   "age_days": 27,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2227,7 +1972,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 26,
+   "age_days": 27,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2244,10 +1989,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 26,
+   "age_days": 27,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733606722",
@@ -2261,10 +2006,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 26,
+   "age_days": 27,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4494018225",
@@ -2278,10 +2023,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 26,
+   "age_days": 27,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4494025013",
@@ -2295,10 +2040,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 26,
+   "age_days": 27,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733509822",
@@ -2312,10 +2057,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 27,
+   "age_days": 28,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "sf-julphar-733602122",
@@ -2329,10 +2074,10 @@
    "source": "successfactors",
    "fit": 0,
    "track": null,
-   "age_days": 27,
+   "age_days": 28,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4493176983",
@@ -2346,10 +2091,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 27,
+   "age_days": 28,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-A7B383F7AA",
@@ -2363,21 +2108,21 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 28,
+   "age_days": 29,
    "loc": "preferred",
    "tags": [],
    "new": false
   },
   {
-   "id": "sf-julphar-733590822",
-   "key": "sf-julphar-733590822",
-   "company": "Julphar",
-   "title": "Product Specialist",
-   "location": "Dubai, United Arab Emirates",
+   "id": "li-4483623294",
+   "key": "li-4483623294",
+   "company": "Nahdi Medical Company",
+   "title": "Physiotherapist (YANBU)",
+   "location": "Yanbu, Al Madinah, Saudi Arabia",
    "region": "Gulf",
-   "posted": "26 Oct 2026",
-   "url": "https://careers.julphar.net/job/Dubai-Product-Specialist/733590822/",
-   "source": "successfactors",
+   "posted": "2026-10-27",
+   "url": "https://www.linkedin.com/jobs/view/4483623294",
+   "source": "linkedin",
    "fit": 0,
    "track": null,
    "age_days": 29,
@@ -2397,10 +2142,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 31,
+   "age_days": 32,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-4B308CE4E9",
@@ -2414,7 +2159,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 35,
+   "age_days": 36,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2431,7 +2176,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 35,
+   "age_days": 36,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2448,10 +2193,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 36,
+   "age_days": 37,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-B32A6C9CA0",
@@ -2465,7 +2210,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 41,
+   "age_days": 42,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -2482,7 +2227,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 41,
+   "age_days": 42,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2499,7 +2244,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 41,
+   "age_days": 42,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -2516,10 +2261,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 45,
+   "age_days": 46,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-7016319418",
@@ -2533,7 +2278,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 48,
+   "age_days": 49,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2550,7 +2295,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 49,
+   "age_days": 50,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -2567,7 +2312,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 56,
+   "age_days": 57,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2584,7 +2329,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 61,
+   "age_days": 62,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -2601,7 +2346,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 62,
+   "age_days": 63,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2618,7 +2363,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 62,
+   "age_days": 63,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2635,7 +2380,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 70,
+   "age_days": 71,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2652,7 +2397,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 72,
+   "age_days": 73,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2669,7 +2414,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 76,
+   "age_days": 77,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2686,7 +2431,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 79,
+   "age_days": 80,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2703,7 +2448,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 86,
+   "age_days": 87,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2720,10 +2465,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 91,
+   "age_days": 92,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-A369E9DD46",
@@ -2737,7 +2482,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 92,
+   "age_days": 93,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2754,7 +2499,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 92,
+   "age_days": 93,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2771,10 +2516,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 92,
+   "age_days": 93,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4455694789",
@@ -2788,10 +2533,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 96,
+   "age_days": 97,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-CDC5C5FAA2",
@@ -2805,7 +2550,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 104,
+   "age_days": 105,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -2822,7 +2567,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 104,
+   "age_days": 105,
    "loc": "east",
    "tags": [
     "East"
@@ -2841,7 +2586,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 111,
+   "age_days": 112,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2858,10 +2603,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 116,
+   "age_days": 117,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4454790665",
@@ -2875,10 +2620,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 123,
+   "age_days": 124,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4454798603",
@@ -2892,10 +2637,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 123,
+   "age_days": 124,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4454799565",
@@ -2909,10 +2654,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 123,
+   "age_days": 124,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-38EFAD1985",
@@ -2926,7 +2671,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 127,
+   "age_days": 128,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2943,7 +2688,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 127,
+   "age_days": 128,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2960,7 +2705,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 128,
+   "age_days": 129,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -2977,10 +2722,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 133,
+   "age_days": 134,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4439906065",
@@ -2994,10 +2739,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 133,
+   "age_days": 134,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4439902334",
@@ -3011,10 +2756,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 133,
+   "age_days": 134,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "li-4439905120",
@@ -3028,10 +2773,10 @@
    "source": "linkedin",
    "fit": 0,
    "track": null,
-   "age_days": 133,
+   "age_days": 134,
    "loc": "gulf",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "eva-pharma-6E14F17A54",
@@ -3045,7 +2790,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 134,
+   "age_days": 135,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3062,7 +2807,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 135,
+   "age_days": 136,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3079,7 +2824,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 148,
+   "age_days": 149,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3096,7 +2841,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 156,
+   "age_days": 157,
    "loc": "east",
    "tags": [
     "East"
@@ -3115,7 +2860,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 162,
+   "age_days": 163,
    "loc": "east",
    "tags": [
     "East"
@@ -3134,7 +2879,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 163,
+   "age_days": 164,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3151,7 +2896,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 166,
+   "age_days": 167,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3168,7 +2913,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 169,
+   "age_days": 170,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3185,7 +2930,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 173,
+   "age_days": 174,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3202,7 +2947,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 174,
+   "age_days": 175,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3219,7 +2964,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 174,
+   "age_days": 175,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3236,7 +2981,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 176,
+   "age_days": 177,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3253,7 +2998,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 183,
+   "age_days": 184,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3270,7 +3015,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 187,
+   "age_days": 188,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3287,7 +3032,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 187,
+   "age_days": 188,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3304,7 +3049,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 196,
+   "age_days": 197,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3321,7 +3066,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 211,
+   "age_days": 212,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3338,7 +3083,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 212,
+   "age_days": 213,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3355,7 +3100,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 215,
+   "age_days": 216,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3372,7 +3117,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 215,
+   "age_days": 216,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3389,7 +3134,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 215,
+   "age_days": 216,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3406,7 +3151,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 215,
+   "age_days": 216,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3423,7 +3168,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 217,
+   "age_days": 218,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3440,7 +3185,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 230,
+   "age_days": 231,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3457,7 +3202,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 237,
+   "age_days": 238,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3474,7 +3219,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 258,
+   "age_days": 259,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3491,7 +3236,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 260,
+   "age_days": 261,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3508,7 +3253,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 274,
+   "age_days": 275,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3525,7 +3270,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 274,
+   "age_days": 275,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3542,7 +3287,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 282,
+   "age_days": 283,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3559,7 +3304,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 282,
+   "age_days": 283,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3576,7 +3321,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 284,
+   "age_days": 285,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3593,7 +3338,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 285,
+   "age_days": 286,
    "loc": "gulf",
    "tags": [],
    "new": false
@@ -3610,7 +3355,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 286,
+   "age_days": 287,
    "loc": "gulf",
    "tags": [],
    "new": false
@@ -3627,7 +3372,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 295,
+   "age_days": 296,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3644,7 +3389,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 301,
+   "age_days": 302,
    "loc": "gulf",
    "tags": [],
    "new": false
@@ -3661,7 +3406,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 307,
+   "age_days": 308,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3678,7 +3423,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 315,
+   "age_days": 316,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3695,7 +3440,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 318,
+   "age_days": 319,
    "loc": "gulf",
    "tags": [],
    "new": false
@@ -3712,7 +3457,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 318,
+   "age_days": 319,
    "loc": "gulf",
    "tags": [],
    "new": false
@@ -3729,7 +3474,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 335,
+   "age_days": 336,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3746,7 +3491,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 336,
+   "age_days": 337,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3763,7 +3508,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 342,
+   "age_days": 343,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3780,7 +3525,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 348,
+   "age_days": 349,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3797,7 +3542,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 350,
+   "age_days": 351,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3814,7 +3559,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 352,
+   "age_days": 353,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3831,7 +3576,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 355,
+   "age_days": 356,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3848,7 +3593,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 356,
+   "age_days": 357,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3865,7 +3610,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 359,
+   "age_days": 360,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3882,7 +3627,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 376,
+   "age_days": 377,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3899,7 +3644,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 384,
+   "age_days": 385,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3916,7 +3661,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 392,
+   "age_days": 393,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -3933,7 +3678,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 413,
+   "age_days": 414,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3950,7 +3695,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 421,
+   "age_days": 422,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3967,7 +3712,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 433,
+   "age_days": 434,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -3984,7 +3729,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 460,
+   "age_days": 461,
    "loc": "gulf",
    "tags": [],
    "new": false
@@ -4001,7 +3746,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 462,
+   "age_days": 463,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -4018,7 +3763,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 474,
+   "age_days": 475,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -4035,7 +3780,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 489,
+   "age_days": 490,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -4052,7 +3797,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 493,
+   "age_days": 494,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -4069,7 +3814,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 495,
+   "age_days": 496,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -4086,7 +3831,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 499,
+   "age_days": 500,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -4103,7 +3848,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 502,
+   "age_days": 503,
    "loc": "cairo",
    "tags": [],
    "new": false
@@ -4120,7 +3865,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 504,
+   "age_days": 505,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -4137,7 +3882,7 @@
    "source": "workable",
    "fit": 0,
    "track": null,
-   "age_days": 504,
+   "age_days": 505,
    "loc": "preferred",
    "tags": [],
    "new": false
@@ -4157,7 +3902,7 @@
    "age_days": null,
    "loc": "cairo",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "grifols-egypt-for-pl-Y6R9V475",
@@ -4633,7 +4378,7 @@
    "age_days": null,
    "loc": "cairo",
    "tags": [],
-   "new": true
+   "new": false
   },
   {
    "id": "grifols-egypt-for-pl-RYV8996X",
@@ -7408,9 +7153,9 @@
   }
  ],
  "errors": [
-  "GSK / Egypt: 429 Too Many Requests (gave up after 3 retries, skipped the rest of this company)",
-  "Novartis / Cairo: 429 Too Many Requests (gave up after 3 retries, skipped the rest of this company)",
-  "Pfizer / Saudi Arabia: 429 Too Many Requests (gave up after 3 retries, skipped the rest of this company)",
+  "GSK / Cairo: 429 Too Many Requests (gave up after 3 retries, skipped the rest of this company)",
+  "Novartis / Egypt: 429 Too Many Requests (gave up after 3 retries, skipped the rest of this company)",
+  "Pfizer / Egypt: 429 Too Many Requests (gave up after 3 retries, skipped the rest of this company)",
   "workday: 3 companies in a row answered 429, so these were skipped this run: Viatris, AstraZeneca, Sanofi, P&G, Unilever, MSD, Roche, Eli Lilly, Bristol Myers Squibb, Johnson & Johnson, Sandoz, Haleon, Abbott, Takeda, Bayer, Kenvue, Organon"
  ]
 }
